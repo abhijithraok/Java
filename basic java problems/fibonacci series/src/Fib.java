@@ -19,7 +19,6 @@ public class Fib {
             for (int i = 0; i < fn; i++) {
                 fr = f1 + f2;
                 fib.add(f1);
-                //System.out.println(fr);
                 f1 = f2;
                 f2 = fr;
             }
@@ -27,7 +26,6 @@ public class Fib {
             for (int i = 0; i < fn; i++) {
                 fr = f1 + f2;
                 fib.add(f1);
-               // System.out.println(fr);
                 f1 = f2;
                 f2 = fr;
             }
@@ -49,7 +47,7 @@ public class Fib {
        ArrayList<Integer> fib = new ArrayList<Integer>();
        for( int i = 0; i < fn ;i++){
            fr = f1 +f2;
-           fib.add(fr);
+           fib.add(f1);
            f1= f2;
            f2 =fr;
        }

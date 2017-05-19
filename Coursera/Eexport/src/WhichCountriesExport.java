@@ -16,14 +16,12 @@ public class WhichCountriesExport {
                 System.out.println(value);
                 found =true;
             }
-
-            }
+        }
             if(!found){
             System.out.println("NOT FOUND");
             }
 
         }
-
    public void listExportersTwoProducts(CSVParser parser, String exportitem1, String exportitem2){
        FileResource fr = new FileResource();
        parser = fr.getCSVParser();

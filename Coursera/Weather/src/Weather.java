@@ -6,7 +6,9 @@ import org.apache.commons.csv.*;
 public class Weather {
     public static void main(String [] args){
         CSVMax a = new CSVMax();
-        a.Test();
+       // a.testColdestHourInFile();
+        //a.testFileWithColdestTemperature();
+        a.testLowestHumidityInFile();
 
     }
 }

@@ -5,49 +5,52 @@ import edu.duke.*;
 import org.apache.commons.csv.*;
 
 public class CSVMax {
-    public CSVRecord HottestHourInFile(CSVParser Parser) {
-        CSVRecord LargestSoFar = null;
-        for (CSVRecord CurrentRow : Parser) {
-            if (LargestSoFar == null) {
-                LargestSoFar = CurrentRow;
+    public CSVRecord hottestHourInFile(CSVParser parser) {
+        CSVRecord largestSoFar = null;
+        for (CSVRecord currentRow : parser) {
+            if (largestSoFar == null) {
+                largestSoFar = currentRow;
             } else {
-                double CurrentTemp = Double.parseDouble(CurrentRow.get("TemperatureF"));
-                double LargestTemp = Double.parseDouble(LargestSoFar.get("TemperatureF"));
+                double CurrentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
+                double LargestTemp = Double.parseDouble(largestSoFar.get("TemperatureF"));
                 if (CurrentTemp > LargestTemp) {
-                    LargestSoFar = CurrentRow;
+                    largestSoFar = currentRow;
                 }
             }
 
         }
-        return LargestSoFar;
+        return largestSoFar;
 
     }
-    public CSVRecord ColdestHourInFile(CSVParser Parser) {
-        CSVRecord ColdestSoFar =null;
-        for(CSVRecord CurrentRow :Parser){
-            if(ColdestSoFar == null){
-                ColdestSoFar = CurrentRow;
+    public CSVRecord coldestHourInFile(CSVParser parser) {
+        CSVRecord coldestSoFar =null;
+        for(CSVRecord currentRow :parser){
+            if(coldestSoFar == null){
+                coldestSoFar = currentRow;
             }
             else{
-                double CurrentTemp = Double.parseDouble(CurrentRow.get("TemperatureF"));
-                double ColdestTemp = Double.parseDouble(ColdestSoFar.get("TemperatureF"));
-                if (ColdestTemp > CurrentTemp){
-                    ColdestSoFar = CurrentRow;
+                double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
+                double coldestTemp = Double.parseDouble(coldestSoFar.get("TemperatureF"));
+                if (coldestTemp > currentTemp){
+                    coldestSoFar = currentRow;
                 }
             }
         }
-        return ColdestSoFar;
+        return coldestSoFar;
     }
+   // public CSVRecord FileWithColdestTemperature{
+
+    //}
 
 
 
     public void Test(){
         FileResource fr1 = new FileResource("C:\\Users\\abhij\\Downloads\\nc_weather\\nc_weather\\2015\\weather-2015-01-01.csv");
-        CSVRecord Largest = HottestHourInFile(fr1.getCSVParser());
-        System.out.println("Hottest temperature was " + Largest.get("TemperatureF") + " at" + Largest.get("TimeEST"));
+        CSVRecord hotest = hottestHourInFile(fr1.getCSVParser());
+        System.out.println("Hottest temperature was " + hotest.get("TemperatureF") + " at" + hotest.get("TimeEST"));
         FileResource fr2 = new FileResource("C:\\Users\\abhij\\Downloads\\nc_weather\\nc_weather\\2015\\weather-2015-01-01.csv");
-        CSVRecord Coldest = ColdestHourInFile(fr2.getCSVParser());
-        System.out.println("Coldest temperature was " + Coldest.get("TemperatureF") + " at" + Coldest.get("TimeEST"));
+        CSVRecord coldest = coldestHourInFile(fr2.getCSVParser());
+        System.out.println("Coldest temperature was " + coldest.get("TemperatureF") + " at" + coldest.get("TimeEST"));
     }
     }
 

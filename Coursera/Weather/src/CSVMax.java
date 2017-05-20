@@ -83,10 +83,10 @@ public class CSVMax {
             else {
                 double currentHumidity = Double.parseDouble(currentRow.get("Humidity"));
                 double lowestHumidity = Double.parseDouble(lowestSoFar.get("Humidity"));
-                 if( lowestHumidity == currentHumidity){
-                     return lowestSoFar;
-                 }
-               else if (lowestHumidity  > currentHumidity) {
+
+
+
+                if (lowestHumidity  > currentHumidity) {
                     lowestSoFar = currentRow;
                 }
 
@@ -113,10 +113,7 @@ public class CSVMax {
             else {
                 double currentHumidity = Double.parseDouble(currentRow.get("Humidity"));
                 double lowestHumidity = Double.parseDouble(lowestSoFar.get("Humidity"));
-                if( lowestHumidity == currentHumidity){
-                    return lowestSoFar;
-                }
-                else if (lowestHumidity  > currentHumidity) {
+                 if (lowestHumidity  > currentHumidity) {
                     lowestSoFar = currentRow;
                 }
 
@@ -196,7 +193,7 @@ public class CSVMax {
     }
 
    public void testLowestHumidityInFile() {
-        FileResource fr = new FileResource();
+       FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
         CSVRecord csv = lowestHumidityInFile(parser);
         System.out.println("Lowest humidity is " + csv.get("Humidity") + " at" + csv.get("DateUTC"));
@@ -219,7 +216,7 @@ public class CSVMax {
             FileResource fr = new FileResource();
             CSVParser parser = fr.getCSVParser();
             double avg = averageTemperatureInFile(parser);
-            System.out.print("avg is" + avg);
+            System.out.print("Average Temperature is : " + avg);
             }
 
 }

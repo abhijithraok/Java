@@ -29,7 +29,7 @@ public class WhichCountriesExport {
             String exports = record.get("Exports");
             if(exports.contains(exportitem1) && exports.contains(exportitem2)){
                 String country1 = record.get("Country");
-                System.out.println(country1);
+                System.out.println(" country which exports both items are " + country1);
 
             }
 
@@ -70,9 +70,9 @@ public class WhichCountriesExport {
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
        // countryinfo(parser,"Nauru");
-        //listExportersTwoProducts(parser,"fish","nuts");
-       // numberOfExporters(parser,"sugar");
-        bigExporters(parser,"$999,999,999,999");
+       // listExportersTwoProducts(parser,"cotton","flowers");
+        //numberOfExporters(parser,"cocoa");
+       bigExporters(parser,"$999,999,999,999");
 
     }
 }

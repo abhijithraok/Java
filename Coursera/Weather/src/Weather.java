@@ -7,10 +7,10 @@ public class Weather {
     public static void main(String[] args) {
         CSVMax a = new CSVMax();
         // a.testColdestHourInFile();
-        //a.testFileWithColdestTemperature();
-       //  a.testLowestHumidityInFile();
+      //  a.testFileWithColdestTemperature();
+       // a.testLowestHumidityInFile();
         // a.testLowestHumidityInManyFiles();
-       // a.testAverageTemperatureInFile();
-        a.testAverageTemperatureWithHighHumidityInFile();
+        a.testAverageTemperatureInFile();
+        //a.testAverageTemperatureWithHighHumidityInFile();
     }
 }

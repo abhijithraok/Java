@@ -8,9 +8,9 @@ public class Weather {
         CSVMax a = new CSVMax();
         // a.testColdestHourInFile();
         //a.testFileWithColdestTemperature();
-        // a.testLowestHumidityInFile();
+       //  a.testLowestHumidityInFile();
         // a.testLowestHumidityInManyFiles();
-        a.testAverageTemperatureInFile();
-       // a.testAverageTemperatureWithHighHumidityInFile();
+       // a.testAverageTemperatureInFile();
+        a.testAverageTemperatureWithHighHumidityInFile();
     }
 }

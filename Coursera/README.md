@@ -18,10 +18,10 @@
 7. prints the length of the longest gene in sr
 
 ### Week 3:
-- [Export] (https://github.com/abhijithraok/Java/tree/master/Coursera/Export)
+- [Export](https://github.com/abhijithraok/Java/tree/master/Coursera/Export)
 1. [export CSV file](http://www.dukelearntoprogram.com/course2/data/exports.zip)
 2.  CSV Files and Basic Statistics in Java
-- [weather] (https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
+- [weather](https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
 - [weather CSV file](http://www.dukelearntoprogram.com/course2/data/nc_weather.zip)
 1. Returns the CSVRecord with the coldest temperature in the file
 2. Returns lowest Humidity,Average Temperature

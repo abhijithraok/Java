@@ -4,7 +4,7 @@
 public class test {
     public static void main(String [] args){
         babyBirths a = new babyBirths();
-        a.test();
+        a.ranktest();
 
     }
 

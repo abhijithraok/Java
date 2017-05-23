@@ -45,30 +45,45 @@ public class babyBirths {
 
 
     }
-    public Integer getRank(Integer year, String name, String gender){
+
+    public Integer getRank(Integer year, String name, String gender) {
         FileResource fr = new FileResource();
-        ArrayList<Integer> rank = new ArrayList<Integer>();
-        for(CSVRecord record : fr.getCSVParser(false)){
+        int rank = 0;
+        for (CSVRecord record : fr.getCSVParser(false)) {
+            if (gender.equals(record.get(1))) {
+                rank += 1;
+            }
             int numborn = Integer.parseInt(record.get(2));
 
-            if(record.get(1).equals(gender )&& record.get(0).equals(name)){
-                System.out.println(record.get(2));
-
+            if (record.get(1).equals(gender) && record.get(0).equals(name)) {
+                System.out.print(name);
+                return rank;
             }
 
 
+        }
+        return -1;
+
+    }
+    public String getName(Integer year,String name,String gender){
+        FileResource fr = new FileResource();
+        for(CSVRecord record : fr.getCSVParser(false)){
 
         }
-        return 1;
-
-   }
+    }
 
 
     public void test() {
         FileResource fr = new FileResource("C:\\Users\\abhij\\Documents\\GItHub\\Java\\Coursera\\Baby Names miniProject\\us_babynames\\us_babynames_test\\example-small.csv");
         //totalBirths(fr);
-     //   printNames(fr);
-        getRank(2012 ,"Mason" ,"M");
+        //   printNames(fr);
+        // getRank(2012 ,"Noah" ,"F");
+
+    }
+
+    public void ranktest() {
+        int a = getRank(2012, "Noah", "M");
+        System.out.println(" " + a);
 
     }
 }

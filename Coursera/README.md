@@ -1,11 +1,11 @@
 # **Java Programming: Solving Problems with Software**
 ## Required Code packages
 - [edu.duke](http://www.dukelearntoprogram.com/downloads/archives/courserajava.jar)
-- [Apache Commons] (https://commons.apache.org/proper/commons-csv/download_csv.cgi)
+- [Apache Commons](https://commons.apache.org/proper/commons-csv/download_csv.cgi)
 ## Assignements:
 
 ### Week 1
-[ GrayScale](https://github.com/abhijithraok/Java/tree/master/Coursera/GrayScale)
+- [GrayScale](https://github.com/abhijithraok/Java/tree/master/Coursera/GrayScale)
 1. Converts an image to grayscale:
 ### Week 2:
 - [Genetest](https://github.com/abhijithraok/Java/tree/master/Coursera/genetest/src)
@@ -19,9 +19,10 @@
 
 ### Week 3:
 - [Export] (https://github.com/abhijithraok/Java/tree/master/Coursera/Export)
-
- 
- 
-
+1. [export CSV file](http://www.dukelearntoprogram.com/course2/data/exports.zip)
+2.  CSV Files and Basic Statistics in Java
 - [weather] (https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
-
+- [weather CSV file](http://www.dukelearntoprogram.com/course2/data/nc_weather.zip)
+1. Returns the CSVRecord with the coldest temperature in the file
+2. Returns lowest Humidity,Average Temperature
+ 

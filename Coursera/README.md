@@ -1,15 +1,17 @@
 # **Java Programming: Solving Problems with Software**
-## **by Duke University**
 
 
 ## Assignements:
 ### Week1
-1.[ GrayScale](https://github.com/abhijithraok/Java/tree/master/Coursera/GrayScale).
-
+Iterables in Java:
+-[ GrayScale](https://github.com/abhijithraok/Java/tree/master/Coursera/GrayScale)
 ### Week 2:
-1.[Genetest](https://github.com/abhijithraok/Java/tree/master/Coursera/genetest/src).
+Strings in Java;
+-[Genetest](https://github.com/abhijithraok/Java/tree/master/Coursera/genetest/src)
 
 ### Week 3:
-1.[Export] (https://github.com/abhijithraok/Java/tree/master/Coursera/Export).
-2.[weather](https://github.com/abhijithraok/Java/tree/master/Coursera/Weather).
+CSV Files and Basic Statistics in Java
+-[Export] (https://github.com/abhijithraok/Java/tree/master/Coursera/Export)
+
+-[weather](https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
 

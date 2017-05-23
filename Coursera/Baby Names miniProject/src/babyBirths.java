@@ -1,6 +1,8 @@
 import edu.duke.FileResource;
 import org.apache.commons.csv.*;
 
+import java.util.ArrayList;
+
 /**
  * Created by Abhijith on 22-May-17.
  */
@@ -43,11 +45,30 @@ public class babyBirths {
 
 
     }
+    public Integer getRank(Integer year, String name, String gender){
+        FileResource fr = new FileResource();
+        ArrayList<Integer> rank = new ArrayList<Integer>();
+        for(CSVRecord record : fr.getCSVParser(false)){
+            int numborn = Integer.parseInt(record.get(2));
+
+            if(record.get(1).equals(gender )&& record.get(0).equals(name)){
+                System.out.println(record.get(2));
+
+            }
+
+
+
+        }
+        return 1;
+
+   }
 
 
     public void test() {
         FileResource fr = new FileResource("C:\\Users\\abhij\\Documents\\GItHub\\Java\\Coursera\\Baby Names miniProject\\us_babynames\\us_babynames_test\\example-small.csv");
-        totalBirths(fr);
+        //totalBirths(fr);
      //   printNames(fr);
+        getRank(2012 ,"Mason" ,"M");
+
     }
 }

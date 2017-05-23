@@ -12,7 +12,14 @@ public class Weather {
         //  a.testFileWithColdestTemperature();
         // a.testLowestHumidityInFile();
         // a.testLowestHumidityInManyFiles();
-        a.testAverageTemperatureInFile();
+         a.testAverageTemperatureInFile();
         //a.testAverageTemperatureWithHighHumidityInFile();
+
     }
+   /* public CSVRecord file(){
+        CSVMax b = new CSVMax();
+        b.testFileWithColdestTemperature();
+
+
+    }*/
 }

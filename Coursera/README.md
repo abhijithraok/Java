@@ -1,4 +1,4 @@
-# **Java Programming: Solving Problems with Software**
+# **[Java Programming: Solving Problems with Software](https://www.coursera.org/learn/java-programming)**
 ## Required Code packages
 - [edu.duke](http://www.dukelearntoprogram.com/downloads/archives/courserajava.jar)
 - [Apache Commons](https://commons.apache.org/proper/commons-csv/download_csv.cgi)
@@ -21,8 +21,8 @@
 - [Export](https://github.com/abhijithraok/Java/tree/master/Coursera/Export)
 1. [export CSV file](http://www.dukelearntoprogram.com/course2/data/exports.zip)
 2.  CSV Files and Basic Statistics in Java
-- [weather](https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
-- [weather CSV file](http://www.dukelearntoprogram.com/course2/data/nc_weather.zip)
-1. Returns the CSVRecord with the coldest temperature in the file
-2. Returns lowest Humidity,Average Temperature
+- [Weather](https://github.com/abhijithraok/Java/tree/master/Coursera/Weather)
+1. [Weather CSV file](http://www.dukelearntoprogram.com/course2/data/nc_weather.zip)
+2. Returns the CSVRecord with the coldest temperature in the file
+3. Returns lowest Humidity,Average Temperature
  

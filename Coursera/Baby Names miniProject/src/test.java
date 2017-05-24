@@ -2,10 +2,12 @@
  * Created by Abhijith on 22-May-17.
  */
 public class test {
-    public static void main(String [] args){
+    public static void main(String[] args) {
         babyBirths a = new babyBirths();
-        a.ranktest();
+        // a.ranktest();
+        // a.testGetName();
+        //a.testWhatIsNmaeInyear();
+        a.testYearOfHighestRank();
 
     }
-
 }

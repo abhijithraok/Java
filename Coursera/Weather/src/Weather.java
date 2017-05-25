@@ -8,18 +8,13 @@ import org.apache.commons.csv.*;
 public class Weather {
     public static void main(String[] args) {
         CSVMax a = new CSVMax();
-        // a.testColdestHourInFile();
+       //  a.testColdestHourInFile();
         //  a.testFileWithColdestTemperature();
         // a.testLowestHumidityInFile();
         // a.testLowestHumidityInManyFiles();
-         a.testAverageTemperatureInFile();
+        //  a.testAverageTemperatureInFile();
         //a.testAverageTemperatureWithHighHumidityInFile();
+       a.testFileWithColdestTemperature();
 
     }
-   /* public CSVRecord file(){
-        CSVMax b = new CSVMax();
-        b.testFileWithColdestTemperature();
-
-
-    }*/
 }

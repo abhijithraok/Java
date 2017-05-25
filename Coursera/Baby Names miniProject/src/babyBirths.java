@@ -3,6 +3,7 @@ import edu.duke.FileResource;
 import org.apache.commons.csv.*;
 
 import java.io.File;
+import java.io.PipedInputStream;
 import java.util.ArrayList;
 
 /**
@@ -55,10 +56,10 @@ public class babyBirths {
             if (gender.equals(record.get(1))) {
                 rank += 1;
             }
-           // int numborn = Integer.parseInt(record.get(2));
+            // int numborn = Integer.parseInt(record.get(2));
 
             if (record.get(1).equals(gender) && record.get(0).equals(name)) {
-               // System.out.print(name);
+                // System.out.print(name);
                 return rank;
             }
 
@@ -67,6 +68,7 @@ public class babyBirths {
         return -1;
 
     }
+
 
     public String getName(Integer year, Integer rank, String gender) {
         String name = null;
@@ -87,25 +89,39 @@ public class babyBirths {
     public String whatIsNameInYear(String name, Integer year, Integer newYear, String gender) {
         String newName = "";
         String currName = "";
-           int currRank = getRank(year, name, gender);
-            newName = getName(newYear, currRank, gender);
-            System.out.println(name +" born in "+year+" would be  " +newName +" if she was born in "+newYear);
+        int currRank = getRank(year, name, gender);
+        newName = getName(newYear, currRank, gender);
+        System.out.println(name + " born in " + year + " would be  " + newName + " if she was born in " + newYear);
         return newName;
     }
-public Integer yearOfHighestRank(String name,String gender){
-        String fileName ="";
-        DirectoryResource dr = new DirectoryResource();
-    for(File f : dr.selectedFiles()){
-    FileResource fr = new FileResource(f);
-    fileName = f.getName();
-    Integer a = Integer.parseInt(fileName.substring(3,7));
-    int currRank =getRank(a,name,gender);
-    System.out.println(currRank);
 
+    public Integer yearOfHighestRank(String name, String gender) {
+        String fileName = "";
+        int currRank = 0;
+        int currYear = 0;
+        int a = 0;
+        int newRank = 0;
+        String fileName2 = "";
+
+        // int newRank = Integer.MAX_VALUE;
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()) {
+             FileResource fr = new FileResource(f);
+            fileName = f.getName();
+            a = Integer.parseInt(fileName.substring(3, 7));
+           currRank = getRank(a, name, gender);
+            if (newRank == 0) {
+                newRank = currRank;
+            } else if (currRank > newRank) {
+                currRank = newRank;
+
+
+            }
+
+        }
+        System.out.println(currRank);
+        return -1;
     }
-    
-    return 1;
-}
 
     public void test() {
         FileResource fr = new FileResource("C:\\Users\\abhij\\Documents\\GItHub\\Java\\Coursera\\Baby Names miniProject\\us_babynames\\us_babynames_test\\example-small.csv");
@@ -132,10 +148,11 @@ public Integer yearOfHighestRank(String name,String gender){
     }
 
     public void testWhatIsNmaeInyear() {
-        whatIsNameInYear("Isabella",2012,2014,"F");
+        whatIsNameInYear("Isabella", 2012, 2014, "F");
 
     }
-    public void testYearOfHighestRank(){
-    yearOfHighestRank("Mason","M");
+
+    public void testYearOfHighestRank() {
+        yearOfHighestRank("Mason", "M");
     }
 }

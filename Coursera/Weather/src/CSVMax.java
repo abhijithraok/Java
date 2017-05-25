@@ -43,17 +43,39 @@ public class CSVMax {
 
     }
 
-    public CSVRecord fileWithColdestTemperature() {
-        String currentFile = "";
+    public String fileWithColdestTemperature() {
+
         CSVRecord coldestSoFar = null;
         DirectoryResource dr = new DirectoryResource();
+        String filename = "";
+
         for (File f : dr.selectedFiles()) {
+
             FileResource fr = new FileResource(f);
+
             CSVRecord currentRow = coldestHourInFile(fr.getCSVParser());
-            coldestSoFar = getcoldestSoFar(currentRow, coldestSoFar);
+
+            double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
+
+            if (currentTemp == -9999) {
+                continue;
+            }
+
+            if (coldestSoFar == null) {
+                coldestSoFar = currentRow;
+                filename = f.getAbsolutePath();
+            } else {
+                double coldestTemp = Double.parseDouble(coldestSoFar.get("TemperatureF"));
+
+                if (currentTemp < coldestTemp) {
+                    coldestSoFar = currentRow;
+                    filename = f.getAbsolutePath();
+                }
+            }
+
         }
-        //System.out.println("Coldest day was in file " + currentFile);
-        return coldestSoFar;
+
+        return filename;
     }
 
 
@@ -165,12 +187,12 @@ public class CSVMax {
 
 
     public void testColdestHourInFile() {
-        FileResource fr1 = new FileResource("C:\\Users\\abhij\\Downloads\\nc_weather\\nc_weather\\2015\\weather-2015-01-01.csv");
+        FileResource fr1 = new FileResource();
         CSVRecord hotest = hottestHourInFile(fr1.getCSVParser());
         System.out.println("Hottest temperature was " + hotest.get("TemperatureF") + " at" + hotest.get("TimeEST"));
 
 
-        FileResource fr2 = new FileResource("C:\\Users\\abhij\\Downloads\\nc_weather\\nc_weather\\2015\\weather-2015-01-01.csv");
+        FileResource fr2 = new FileResource();
 
         CSVRecord coldest = coldestHourInFile(fr2.getCSVParser());
         System.out.println("Coldest temperature was " + coldest.get("TemperatureF") + " at" + coldest.get("TimeEST"));
@@ -178,15 +200,6 @@ public class CSVMax {
 
     }
 
-    public void testFileWithColdestTemperature() {
-        CSVRecord fileWithColdest = fileWithColdestTemperature();
-        // String fileName = fileWithColdestTemperature();
-        //CSVRecord fileWithColdest = fileWithColdestTemperature();
-
-        //System.out.println(fileWithColdest );
-        System.out.println(fileWithColdest.get("TemperatureF") + " at " + fileWithColdest.get("DateUTC"));
-
-    }
 
     public void testLowestHumidityInFile() {
         FileResource fr = new FileResource();
@@ -213,6 +226,21 @@ public class CSVMax {
         CSVParser parser = fr.getCSVParser();
         double avg = averageTemperatureInFile(parser);
         System.out.print("Average Temperature is : " + avg);
+    }
+
+    public void testFileWithColdestTemperature() {
+        String pathName = fileWithColdestTemperature();
+        FileResource fr = new FileResource(pathName);
+        CSVParser parser = fr.getCSVParser();
+        CSVRecord coldest = coldestHourInFile(fr.getCSVParser());
+        System.out.println("Coldest day was in the file  " + pathName.substring(pathName.lastIndexOf("\\") + 1));
+        System.out.println("Coldest temperature on that day was " + coldest.get("TemperatureF") + " at " + coldest.get("TimeEST"));
+        System.out.println("All the Temperatures on coldest day were");
+        for (CSVRecord record : parser) {
+            System.out.println(record.get("DateUTC") + " " + record.get("TemperatureF"));
+        }
+
+
     }
 
 }

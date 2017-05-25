@@ -3,8 +3,7 @@ import edu.duke.FileResource;
 import org.apache.commons.csv.*;
 
 import java.io.File;
-import java.io.PipedInputStream;
-import java.util.ArrayList;
+
 
 /**
  * Created by Abhijith on 22-May-17.
@@ -99,28 +98,39 @@ public class babyBirths {
         String fileName = "";
         int currRank = 0;
         int currYear = 0;
+        int currRank1 = 0;
         int a = 0;
         int newRank = 0;
-        String fileName2 = "";
+        String fileName1 = "";
+        String fileName3 = "";
 
         // int newRank = Integer.MAX_VALUE;
         DirectoryResource dr = new DirectoryResource();
         for (File f : dr.selectedFiles()) {
-             FileResource fr = new FileResource(f);
+            FileResource fr = new FileResource(f);
             fileName = f.getName();
             a = Integer.parseInt(fileName.substring(3, 7));
-           currRank = getRank(a, name, gender);
+            currRank = getRank(a, name, gender);
             if (newRank == 0) {
                 newRank = currRank;
-            } else if (currRank > newRank) {
-                currRank = newRank;
+                fileName1 = f.getName();
+                currYear = Integer.parseInt(fileName1.substring(3,7));
 
+            } else {
+
+
+                 if( newRank > currRank){
+                   newRank =currRank;
+                    fileName1 = f.getAbsolutePath();
+                }
 
             }
+           //
+
 
         }
-        System.out.println(currRank);
-        return -1;
+
+        return currYear;
     }
 
     public void test() {
@@ -153,6 +163,7 @@ public class babyBirths {
     }
 
     public void testYearOfHighestRank() {
-        yearOfHighestRank("Mason", "M");
+       int year= yearOfHighestRank("Mason", "M");
+       System.out.println(year);
     }
 }

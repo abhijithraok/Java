@@ -9,8 +9,8 @@ public class test {
         // a.ranktest();
         // a.testGetName();
         //a.testWhatIsNmaeInyear();
-        a.testYearOfHighestRank();
-
+       // a.testYearOfHighestRank();
+           a.testGetAverageRank();
     }
 
 }

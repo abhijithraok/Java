@@ -98,13 +98,9 @@ public class babyBirths {
         String fileName = "";
         int currRank = 0;
         int currYear = 0;
-        int currRank1 = 0;
         int a = 0;
         int newRank = 0;
         String fileName1 = "";
-        String fileName3 = "";
-
-        // int newRank = Integer.MAX_VALUE;
         DirectoryResource dr = new DirectoryResource();
         for (File f : dr.selectedFiles()) {
             FileResource fr = new FileResource(f);
@@ -114,24 +110,52 @@ public class babyBirths {
             if (newRank == 0) {
                 newRank = currRank;
                 fileName1 = f.getName();
-                currYear = Integer.parseInt(fileName1.substring(3,7));
+                currYear = Integer.parseInt(fileName1.substring(3, 7));
 
             } else {
 
-
-                 if( newRank > currRank){
-                   newRank =currRank;
+                if (newRank > currRank) {
+                    newRank = currRank;
                     fileName1 = f.getAbsolutePath();
+                    currYear = Integer.parseInt(fileName1.substring(3, 7));
                 }
 
             }
-           //
-
 
         }
 
         return currYear;
     }
+
+
+    public double getAverageRank(String name, String gender) {
+        double count = 0;
+        double sum = 0;
+        double avg = 0;
+        int currRank = 0;
+        int rank1 = 0;
+        int rank2 = 0;
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()) {
+            int rank = 0;
+            FileResource fr = new FileResource(f);
+            count += 1;
+            for (CSVRecord record : fr.getCSVParser(false)) {
+                if (gender.equals(record.get(1))) {
+                    rank += 1;
+                }
+                if (record.get(1).equals(gender) && record.get(0).equals(name)) {
+                    rank1 = rank;
+
+                }
+
+            }
+            rank2 += rank1;
+
+        }
+        return avg = rank2 / count;
+    }
+
 
     public void test() {
         FileResource fr = new FileResource("C:\\Users\\abhij\\Documents\\GItHub\\Java\\Coursera\\Baby Names miniProject\\us_babynames\\us_babynames_test\\example-small.csv");
@@ -163,7 +187,12 @@ public class babyBirths {
     }
 
     public void testYearOfHighestRank() {
-       int year= yearOfHighestRank("Mason", "M");
-       System.out.println(year);
+        int year = yearOfHighestRank("Mason", "M");
+        System.out.println(year);
+    }
+
+    public void testGetAverageRank() {
+        double avg = getAverageRank("Jacob", "M");
+        System.out.print(avg);
     }
 }

@@ -6,11 +6,13 @@ import org.apache.commons.csv.CSVRecord;
 public class test {
     public static void main(String[] args) {
         babyBirths a = new babyBirths();
-        // a.ranktest();
-        // a.testGetName();
-        //a.testWhatIsNmaeInyear();
-       // a.testYearOfHighestRank();
+       // a.test();
+        a.ranktest();
+         a.testGetName();
+       a.testWhatIsNameInyear();
+       a.testYearOfHighestRank();
            a.testGetAverageRank();
+        a.testGetTotalBirthsRankedHigher();
     }
 
 }

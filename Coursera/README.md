@@ -25,4 +25,7 @@
 1. [Weather CSV file](http://www.dukelearntoprogram.com/course2/data/nc_weather.zip)
 2. Returns the CSVRecord with the coldest temperature in the file
 3. Returns lowest Humidity,Average Temperature
- 
+
+### Week 4:
+- [Baby Names Mini Project](https://github.com/abhijithraok/Java/tree/master/Coursera/Baby%20Names%20miniProject/src)
+- [Baby Names CSV files](https://github.com/abhijithraok/Java/tree/master/Coursera/Baby%20Names%20miniProject/us_babynames)

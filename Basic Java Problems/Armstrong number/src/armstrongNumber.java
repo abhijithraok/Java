@@ -7,22 +7,22 @@ import java.util.Scanner;
 public class armstrongNumber {
     public static void main(String[] args) {
         int cube = 0;
-        int d = 0;
+        int sumOfCubes = 0;
         System.out.println("Enter a number");
         Scanner scan = new Scanner(System.in);
         ArrayList<Integer> array = new ArrayList<Integer>();
-        String a = scan.nextLine();
-        int c = Integer.parseInt(a);
+        String inputString = scan.nextLine();
+        int inputNumber = Integer.parseInt(a);
         for (int i = 0; i < a.length(); i++) {
-            int b = Character.getNumericValue(a.charAt((i)));
+            int b = Character.getNumericValue(inputString.charAt((i)));
 
             cube = b * b * b;
             array.add(cube);
         }
         for (int i = 0; i < array.size(); i++) {
-            d += array.get(i);
+            sumOfCubes += array.get(i);
         }
-        if (d == c) {
+        if (sumOfCubes == inputNumber) {
             System.out.println(" Armstrong number");
 
         } else {

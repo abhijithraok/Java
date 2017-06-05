@@ -21,8 +21,9 @@ public class sumOfGivenNumber {
            }
 
         }
-        for(int i = 0; i < array.size(); i++){
-             sum += array.get(i);
+
+        for(int i : array){
+             sum += i;
 
         }
         System.out.println("Sum of all number is " + " " +sum);

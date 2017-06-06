@@ -1,8 +1,8 @@
 /**
  * Created by abhij on 06-Jun-17.
  */
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,8 +10,8 @@ import java.util.Scanner;
  */
 public class Fib {
     public static void main(String[] args) {
-       long sum = 0;
-       long f1 =0,f2 = 1 , fr = 0;
+        long sum = 0;
+        long f1 = 0, f2 = 1, fr = 0;
         System.out.println("enter fn");
         Scanner input = new Scanner(System.in);
         int fn = input.nextInt();
@@ -36,14 +36,16 @@ public class Fib {
                 f2 = fr;
             }
 
-        }
-        else {
+        } else {
             System.out.println("error");
         }
         // for finding sum of even Fibonacci
-        for(Long i : fib){
-            if(i % 2 == 0){
-                sum += i;
+
+        //Even Fibonacci numbers Project euler.net #2
+
+        for (int i = 1; i < fib.size(); i++) {
+            if (fib.get(i) % 2 == 0 && fib.get(i) < 4000000) {
+                sum += fib.get(i);
             }
         }
 
@@ -53,22 +55,4 @@ public class Fib {
 
     }
 }
-
- /*public  ArrayList Fibonacci(int f1 ){
-        int f2 =1,fr=0,s,t;
-       System.out.println("enter fn");
-       Scanner input = new Scanner(System.in);
-       int fn = input.nextInt();
-       ArrayList<Integer> fib = new ArrayList<Integer>();
-       for( int i = 0; i < fn ;i++){
-           fr = f1 +f2;
-           fib.add(f1);
-           f1= f2;
-           f2 =fr;
-       }
-       return Fibonacci(fr);
-
-
-    }*/
-
 

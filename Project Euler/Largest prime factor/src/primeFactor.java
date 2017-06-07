@@ -13,20 +13,16 @@ public class primeFactor {
         Scanner scan = new Scanner(System.in);
         long input = scan.nextLong();
         primeNumbers.add((long)1);
+        long largestPrimeFactor = largestPrimeFactor(input);
+        System.out.println("Largest Prime Factor is "+ largestPrimeFactor);
         for (long i = 2; i < input; i++) {
             number =IsPrime(i);
             if (number)
                 primeNumbers.add(i);
         }
         System.out.println(primeNumbers);
-        for(long prime : primeNumbers){
-            if(input % prime == 0){
-                primeFactor.add(prime);
 
-            }
 
-        }
-        System.out.println("Largest PrimeFactor is "+ Collections.max(primeFactor));
     }
 
     public static boolean IsPrime(long k) {
@@ -36,5 +32,18 @@ public class primeFactor {
         }
         return true;
 
+
+    }
+    public static long largestPrimeFactor(long input){
+        long i =2;
+        while(input > 1){
+            if(input%i == 0){
+                input = input/i;
+
+            }
+            else i = i+1;
+
+        }
+        return  i;
     }
 }

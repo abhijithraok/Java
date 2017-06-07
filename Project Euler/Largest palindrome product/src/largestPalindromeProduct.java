@@ -13,7 +13,7 @@ public class largestPalindromeProduct {
         int firsNumber = scan.nextInt();
         numbers = numbergen(n, firsNumber);
         int largestPalindrome = largestPalindrome(numbers);
-        System.out.println(largestPalindrome);
+        System.out.println("largest palindrome from product of 3 digit is " + largestPalindrome);
 
     }
 
@@ -23,25 +23,39 @@ public class largestPalindromeProduct {
             numbers.add(i);
 
         }
-        System.out.println(numbers);
+        //System.out.println(numbers);
         return numbers;
     }
 
     public static int largestPalindrome(ArrayList<Integer> numbers) {
         ArrayList<Integer> numbers2 = new ArrayList<>();
         ArrayList<Integer> product = new ArrayList<>();
+        ArrayList<Integer> largestPalindrome = new ArrayList<>();
         numbers2 = numbers;
-        for(int i = 0; i< numbers.size(); i++){
-            for(int j = 0; j<numbers2.size();j++){
-                product.add(numbers.get(i)*numbers2.get(j));
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = 0; j < numbers2.size(); j++) {
+                product.add(numbers.get(i) * numbers2.get(j));
             }
 
         }
-        for(int i =0 ;i<product.size();i++){
-            
+        for (int i = 0; i < product.size(); i++) {
+            int num = product.get(i);
+            int n = num;
+            int rev = 0;
+            while (num > 0) {
+                int dig = num % 10;
+                rev = rev * 10 + dig;
+                num = num / 10;
+
+            }
+            if (n == rev) {
+                largestPalindrome.add(n);
+
+            }
         }
+        int max = Collections.max(largestPalindrome);
 
 
-return 1;
+        return max;
     }
 }

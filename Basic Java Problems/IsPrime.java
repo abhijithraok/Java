@@ -1,7 +1,6 @@
 public class IsPrime {
     public static void main(String[] args) {
         boolean number;
-       System.out.println(1);
         for (int i = 2; i < 1000; i++) {
             number =IsPrime(i);
             if (number)

@@ -24,42 +24,30 @@ import java.util.*;
 
 public class highlyDivisibleTriangular {
     public static void main(String[] args) {
-        HashMap<Integer, Integer> trianangleDivisor = new HashMap<>();
-        ArrayList<Integer> triangleNumber = new ArrayList<>();
-        int count = 0;
-        int num = 0;
-        int numOfDivisor = 0;
-        for (int i = 1; i <= 10; i++) {
-            count = count + i;
-            triangleNumber.add(count);
-        }
-       for(int i = 1; i < triangleNumber.size();i++){
-           numOfDivisor =0;
-            num = triangleNumber.get(i);
-            for(int j = 1; j <= num; j++ ){
-                if(num % j == 0 ){
-                    numOfDivisor +=1;
-                }
-            }
-            trianangleDivisor.put(num,numOfDivisor);
-       }
-       System.out.println((trianangleDivisor));
-  System.out.print(triangleNumber);
+        calculateDivisor();
+
     }
 
+    public static void calculateDivisor() {
+       long k =1;
+       boolean b = true;
 
-    public static int largestPrimeFactor(int input){
-        int i =2;
-        while(input > 1){
-            if(input%i == 0){
-                input = input/i;
-
-            }
-            else i = i+1;
-
+       while ( b ){
+           long nthTriangle = k *(k +1)/2;
+           int numOfDivisor =1;
+           for(long i = 1; i <= nthTriangle/2 ;i++)
+           {
+               if(nthTriangle % i == 0){
+                   numOfDivisor ++;
+               }
+           }
+           if(numOfDivisor >= 350){
+               System.out.println(nthTriangle);
+               b = false;
+           }
+           k++;
         }
-        return  i;
+
+System.out.println("no divisor");
     }
 }
-
-

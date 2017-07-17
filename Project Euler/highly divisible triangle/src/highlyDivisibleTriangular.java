@@ -18,9 +18,10 @@
  * We can see that 28 is the first triangle number to have over five divisors.
  * <p>
  * What is the value of the first triangle number to have over five hundred divisors?
+ *
+ * program works but poorly optimized
  */
 
-import java.util.*;
 
 public class highlyDivisibleTriangular {
     public static void main(String[] args) {
@@ -33,21 +34,20 @@ public class highlyDivisibleTriangular {
        boolean b = true;
 
        while ( b ){
-           long nthTriangle = k *(k +1)/2;
+           long nthTriangle = k *(k +1)/2;//generates triangle
            int numOfDivisor =1;
-           for(long i = 1; i <= nthTriangle/2 ;i++)
+           for(long i = 1; i <= nthTriangle/2 ;i++) //trial by division n/2 numbers
            {
                if(nthTriangle % i == 0){
                    numOfDivisor ++;
                }
            }
-           if(numOfDivisor >= 350){
+           if(numOfDivisor >= 500){
                System.out.println(nthTriangle);
                b = false;
            }
            k++;
         }
 
-System.out.println("no divisor");
     }
 }

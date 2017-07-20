@@ -22,7 +22,7 @@ public class longestCollatzSequence {
    //     long startTime = System.currentTimeMillis();
         int largest =0;
         int num = 0;
-        for (int i = 1; i < 1000000; i+=2) { // calculating only for odd number to reduce execution time 
+        for (int i = 1; i < 1000000; i+=2) { // calculating only for odd number to reduce execution time
             int n = calculateCollatzSequence( i);
             if(n > largest){
                 largest = n;

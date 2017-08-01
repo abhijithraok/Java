@@ -18,10 +18,10 @@ public class factorialDigitSum {
           Scanner scan = new Scanner(System.in);
            int value = scan.nextInt();        */
         String factor = factorial(100);
-        sumOfDigit(factor);
+        System.out.println(sumOfDigit(factor));
     }
 
-    private static String factorial(int n) {                  //method to find factors
+    public static String factorial(int n) {                  //method to find factors
         BigInteger factor = new BigInteger("1");
 
         for (long i = 1; i <= n; i++) {
@@ -32,12 +32,12 @@ public class factorialDigitSum {
         return factorial;
     }
 
-    private static void sumOfDigit(String factor) {            //method to find sum of each digit in factors
+    public static int sumOfDigit(String factor) {            //method to find sum of each digit in factors
         int sum = 0;
         for (int i = 0; i < factor.length(); i++) {
             sum += Character.getNumericValue(factor.charAt(i));
 
         }
-        System.out.println(sum);
+        return sum;
     }
 }

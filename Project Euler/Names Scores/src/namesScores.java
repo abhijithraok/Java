@@ -8,19 +8,21 @@
 
  What is the total of all the name scores in the file?
  */
+
 import java.io.*;
 import java.util.*;
 
 public class namesScores {
     public static void main(String[] args) throws Exception {
         ArrayList<String> nameList = readData();
-       score(nameList);
+       int score = score(nameList);
+       System.out.println(score);
     }
 
-    public static ArrayList readData() throws Exception {
+    public static ArrayList readData() throws Exception {    //adding names to arraylist
         ArrayList<String> nameList = new ArrayList<>();
         String tempName = "";
-        Scanner scan = new Scanner(new File("test.txt"));
+        Scanner scan = new Scanner(new File("names.txt"));
         while (scan.hasNextLine()) {
             String name[] = scan.nextLine().split(",");
             for (int i = 0; i < name.length; i++) {
@@ -31,24 +33,31 @@ public class namesScores {
         return nameList;
     }
 
-    public static void score(ArrayList<String> nameList){
+    public static int score(ArrayList<String> nameList) {
+        int sum = 0;
+        int totalScore = 0;
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        HashMap<String ,Integer> nameMap = new HashMap<>();
+        HashMap<String, Integer> nameMap = new HashMap<>();
+        ArrayList<Integer> score = new ArrayList<>();
         Collections.sort(nameList);
-        for(int i = 0; i < nameList.size();i++){
-            nameMap.put(nameList.get(i),i+1);
+        for (int i = 0; i < nameList.size(); i++) {    //using hashmap to rank sorted nameList
+            nameMap.put(nameList.get(i), i + 1);
         }
 
-        for(String name : nameMap.keySet()){
-            int totalScore = 0;
+        for (String name : nameMap.keySet()) {
             int tempSum = 0;
-            for(int i = 0; i < name.length();i++){
+            for (int i = 0; i < name.length(); i++) { //finding value of letter from using alphabet string
                 char currChar = name.charAt(i);
                 int index = alphabet.indexOf(currChar);
-                tempSum += index+1;
+                tempSum += index + 1;
             }
-            totalScore
+            int rank = nameMap.get(name);
+            sum = tempSum * rank;
+            //    System.out.println(tempSum +"total score" + " name" + name + " rank " +nameMap.get(name) + " sum" + sum);
+            score.add(sum);
+            totalScore += sum;
         }
+       return totalScore;
 
     }
 }

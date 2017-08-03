@@ -10,33 +10,36 @@
 
  Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
  */
+
 import java.util.*;
+
 public class nonAbundantSums {
 
     public static void main(String[] args) {
+        
         ArrayList<Integer> abundantNumberList = new ArrayList<>();
-        int sum = sumOfAllNumber();
         for (int i = 10; i < 28123; i++) {
             int number = abundantNumber(i);
             if (number != 0) {
                 abundantNumberList.add(number);
             }
         }
-       
-       sumOfAbundantNumber(abundantNumberList);
-
-
+        boolean[] canBeWritten = sumOfAbundantNumber(abundantNumberList);
+        sumOfAllNumber(canBeWritten);
     }
 
-    public static int sumOfAllNumber() {
+    public static int sumOfAllNumber(boolean[] canBeWritten) {
         int sum = 0;
-        for (int i = 0; i <= 28123; i++) {
-            sum += i;
+        for (int i = 1; i <= 28123; i++) {
+            if (!canBeWritten[i]) {
+                sum += i;
+            }
         }
+        System.out.println(sum);
         return sum;
     }
 
-    public static int abundantNumber(int n) {
+    public static int abundantNumber(int n) {  // finding all abundantnumber less than limit
         int abundant = 0;
         int sumOfDivisor = 0;
         for (int i = 1; i < n; i++) {
@@ -50,21 +53,21 @@ public class nonAbundantSums {
         return abundant;
     }
 
-    public static Boolean[] sumOfAbundantNumber(ArrayList<Integer> numList) {
+    // // mark all the sums of two abundant numbers in boolean array of limit+1
+    public static boolean[] sumOfAbundantNumber(ArrayList<Integer> numList) {
         int limit = 28123;
-        Boolean[] nonAbundantNum = new Boolean[limit + 1];
+        boolean[] nonAbundantNum = new boolean[limit + 1];
         for (int i = 0; i < numList.size(); i++) {
-            for(int j = i; j < numList.size(); j++){
-                if(numList.get(i) + numList.get(j) <=limit){
-                    nonAbundantNum[numList.get(i)+ numList.get(j)] = true;
-                }
-                else {
+            for (int j = i; j < numList.size(); j++) {
+                if (numList.get(i) + numList.get(j) <= limit) {
+                    nonAbundantNum[numList.get(i) + numList.get(j)] = true;
+                } else {
                     break;
                 }
             }
         }
-        System.out.println(Arrays.toString(nonAbundantNum));
-       return nonAbundantNum;
+      //System.out.println(Arrays.toString(nonAbundantNum));
+        return nonAbundantNum;
 
     }
 }

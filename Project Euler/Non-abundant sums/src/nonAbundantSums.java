@@ -16,7 +16,7 @@ import java.util.*;
 public class nonAbundantSums {
 
     public static void main(String[] args) {
-        
+        long startTime = System.currentTimeMillis();
         ArrayList<Integer> abundantNumberList = new ArrayList<>();
         for (int i = 10; i < 28123; i++) {
             int number = abundantNumber(i);
@@ -26,6 +26,9 @@ public class nonAbundantSums {
         }
         boolean[] canBeWritten = sumOfAbundantNumber(abundantNumberList);
         sumOfAllNumber(canBeWritten);
+        long endTime   = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println(totalTime);
     }
 
     public static int sumOfAllNumber(boolean[] canBeWritten) {

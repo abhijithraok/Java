@@ -1,28 +1,47 @@
 /**
  * Created by Abhijith on 06-Aug-17.
+ * 1000-digit Fibonacci number
+ Problem 25
+ The Fibonacci sequence is defined by the recurrence relation:
+
+ Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
+ Hence the first 12 terms will be:
+
+ F1 = 1
+ F2 = 1
+ F3 = 2
+ F4 = 3
+ F5 = 5
+ F6 = 8
+ F7 = 13
+ F8 = 21
+ F9 = 34
+ F10 = 55
+ F11 = 89
+ F12 = 144
+ The 12th term, F12, is the first term to contain three digits.
+
+ What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
  */
-import com.sun.org.apache.bcel.internal.generic.BIPUSH;
 
 import java.math.BigInteger;
-import java.util.*;
 
 public class fibonacci {
+
     public static void main(String[] args) {
-        ArrayList<Long> fib = new ArrayList<Long>();
-        long f1 = 0;
-        long f2 = 1;
-        long count = 0;
-        for(int i = 1 ;  i <= 1000000000 ; i++){
+        int i = 0;
+        int count = 2;
+        BigInteger limit = (new BigInteger("10")).pow(999);
+        BigInteger[] fib = new BigInteger[3];
+
+        fib[0] = BigInteger.ONE;
+        fib[2] = BigInteger.ONE;
+
+        while ((fib[i]).compareTo(limit) < 0) {
+            i = (i + 1) % 3;
             count++;
-            f1 = f1+f2;
-            f2 = f1-f2;
-            String string = Long.toString(f1);
-            if(string.length() == 100){
-                System.out.println(string +" "+count);
-            }
+            fib[i] = fib[(i + 1) % 3].add(fib[(i + 2) % 3]);
         }
-
-
+        System.out.printf("Fibonacci %d has 1000 digits\n", count);
     }
-
 }

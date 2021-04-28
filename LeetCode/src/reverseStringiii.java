@@ -3,11 +3,18 @@ import java.util.regex.Pattern;
 
 public class reverseStringiii {
     public static String reverseWords(String s) {
-        String[] str = s.split(" ");
-        for (int i = 0; i < str.length; i++) str[i] = new StringBuilder(str[i]).reverse().toString();
-        StringBuilder result = new StringBuilder();
-        for (String st : str) result.append(st + " ");
-        return result.toString().trim();
+        StringBuilder sb = new StringBuilder();
+        String [] arr = s.split(" ");
+        for( String ss : arr){
+            for(int i = ss.length()-1; i >= 0; i--){
+                sb.append(ss.charAt(i));
+
+            }
+            sb.append(' ');
+
+        }
+        return sb.toString().trim();
+
     }
 
     public static void main(String[] args) {
